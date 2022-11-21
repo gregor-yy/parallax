@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+
+import Article from "./components/Article/Article";
+import Header from "./components/UI/Header/Header";
+
+import ScrollContainer from "./components/UI/ScrollContainer/ScrollContainer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    useEffect(() => {
+        const handleScroll = (e) => {
+            document.body.style.cssText = `--scrollTop: ${window.scrollY}px`;
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+    return (
+        <ScrollContainer>
+            <Header />
+            <Article />
+        </ScrollContainer>
+    );
 }
 
 export default App;

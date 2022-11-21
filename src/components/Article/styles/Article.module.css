@@ -1,0 +1,36 @@
+.article {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.articleHeader {
+    text-transform: uppercase;
+    font-size: calc(var(--index) * 1.8);
+    letter-spacing: calc(var(--index) / 7.5);
+    will-change: transform;
+    transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+    transition: var(--transition);
+}
+
+.articleText {
+    max-width: calc(var(--index) * 30);
+    font-size: calc(var(--index) * 0.8);
+    margin-top: calc(var(--index) / 1.25);
+    will-change: transform;
+    transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+    transition: var(--transition);
+}
+
+.copy {
+    position: absolute;
+    bottom: calc(var(--index) * 2.5);
+    opacity: 0.45;
+    font-size: calc(var(--index) * 0.75);
+}

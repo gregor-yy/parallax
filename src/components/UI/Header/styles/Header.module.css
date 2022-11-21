@@ -1,0 +1,74 @@
+.header {
+    position: relative;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    height: calc(var(--index) * 10);
+    background-image: url(/public/img/ground.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: calc(var(--index) * -4.5);
+}
+
+.layers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    transition: var(--transition);
+}
+
+.layerBase {
+    z-index: 0;
+    transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+}
+
+.layerMiddle {
+    z-index: 2;
+    transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+}
+
+.layerFront {
+    z-index: 3;
+    transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+}
+
+.layersHeader {
+    z-index: 1;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    will-change: transform;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--text);
+    text-shadow: 0 0 35px #917f41;
+    transition: var(--transition);
+}
+
+.layersTitle {
+    font-size: calc(var(--index) * 2.5);
+    letter-spacing: calc(var(--index) / 2.25);
+}
+
+.layersCaption {
+    font-size: calc(var(--index) / 1.175);
+    letter-spacing: calc(var(--index) / 3.5);
+    margin-top: calc(var(--index) / -0.75);
+}
